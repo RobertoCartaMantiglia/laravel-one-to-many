@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Type extends Model
 {
     use HasFactory;
-    // protected $fillable = array('slug', 'title', 'description', 'thumb', 'author', 'used_technology');
+    protected $fillable = array('name');
 
+
+    //collego il modello della entità indipendente alla entità dipendente, la funzione è al plurale perché per un solo type esistono più projects
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }
