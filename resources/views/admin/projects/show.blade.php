@@ -27,6 +27,7 @@
                     <p class="card-text mb-4">
                        Autore: {{ $project->author }}
                     </p>
+                    
                 </div>
                 
                 <a href="{{route('admin.projects.edit', $project->id)}}" class="btn btn-success">
