@@ -18,6 +18,19 @@
         </label>
         <input type="text" name="title" value="{{old('title', $project->title)}}" class="form-control">
     </div>
+    
+    <div class="mb-3">
+        <label for="type_id" class="form-label">
+            Tipologia di linguaggio Utilizzata
+        </label>
+        <select type="text" name="type_id" class="form-control"> 
+            @foreach ($types as $type)
+            <option value="{{$type->id}}">{{$type->name}}</option>
+                
+            @endforeach
+        </select>
+    </div>
+   
     <div class="mb-3">
         <label for="description" class="form-label">
             Descrizione

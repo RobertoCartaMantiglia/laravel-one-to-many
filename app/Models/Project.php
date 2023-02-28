@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
-    protected $fillable = array('slug', 'title', 'description', 'thumb', 'author', 'used_technology');
+    protected $fillable = array('slug', 'title', 'description', 'thumb', 'author', 'used_technology', 'type_id');
 
     //collegao l'entità dipendente a quella indipendente, uso la funzione al singolare perché esiste un solo type per ogni project
     public function type()

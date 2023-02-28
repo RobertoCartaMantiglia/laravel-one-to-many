@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
@@ -18,6 +19,8 @@ class ProjectController extends Controller
         'thumb' => 'required|image',
         'author' => 'required|string',
         'used_technology' => 'required|string|min:2|max:200',
+        'type_id' => 'required|exist:types,id',
+
     ];
 
     protected $messagesOfErrors = [
@@ -47,7 +50,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create', ["project" => new Project()]);
+        return view('admin.projects.create', ["project" => new Project(), "types" => Type::all()]);
     }
 
     /**
@@ -88,7 +91,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        return view('admin.projects.edit', compact('project'), ["types" => Type::all()]);
     }
 
     /**
